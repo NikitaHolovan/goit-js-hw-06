@@ -17,10 +17,12 @@ imagesUl.style.display = "flex";
 imagesUl.style.justifyContent = "space-between";
 imagesUl.style.listStyle = "none";
 
-images.forEach(el => {
-  imagesUl.insertAdjacentHTML(
+const imagesMarkup = images
+  .map((image) => `<li><img src=${image.url} alt=${image.alt}width = "250" height = "200"/></li>`)
+  .join('');
+
+imagesUl.insertAdjacentHTML(
     "afterbegin",
-    `<li><img src="${el.url}" alt="${el.alt}" width = "250" height = "200"/></li>`);
-});
+    imagesMarkup);
 
 console.log(imagesUl)
